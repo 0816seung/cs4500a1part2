@@ -150,7 +150,7 @@ void test_remove() {
 
 void test_set() {
 	String* a = new String("a");
-	String* a = new String("b");
+	String* b = new String("b");
 	Array* array = new Array();
 	array->push_back(a);
 	t_true(array->get(0)->equals(a));
