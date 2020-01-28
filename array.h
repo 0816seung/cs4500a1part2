@@ -62,5 +62,5 @@ public:
 	virtual char* to_string() {}
 
 	// returns copy of this array
-	virtual Object* clone() {}
+	virtual Array* clone() {}
 };

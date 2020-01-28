@@ -8,133 +8,160 @@ void t_false(bool p) { if (p) exit(1); }
 
 void test_array_create() {
 	Array* array = new Array();
-	array->push_back(new String("b"));
-	array->add(0, new String("a"));
+	array->push_back(b);
+	array->add(0, a);
 	Array* array_2 = new Array();
-	array_2->add(0, new String("b"));
-	array_2->add(0, new String ("a"));
+	array_2->add(0, b);
+	array_2->add(0, a);
 	t_true(array->equals(array_2));
+	delete[] array;
+	delete[] array_2;
 }
 
 void test_push_back_all() {
 	Array* array = new Array();
-	array->push_back(new String("a"));
-	array->push_back(new String ("b"));
+	array->push_back(a);
+	array->push_back(b);
 	Array* array_2 = new Array();
 	array_2->push_back_all(array);
 	t_true(array->equals(array_2));
+
+	delete[] array;
+	delete[] array_2;
 }
 
 void test_add_all() {
 	Array* array = new Array();
-	array->add(0, new String("b"));
-	array->add(0, new String("a"));
+	array->add(0, b);
+	array->add(0, a);
 	Array* array_2 = new Array();
-	array_2->add(0, new String("c"));
+	array_2->add(0, c);
 	array_2->add_all(0, array);
 	Array* array_3 = new Array();
-	array_3->push_back(new String("a"));
-	array_3->push_back(new String("b"));
-	array_3->push_back(new String("c"));
+	array_3->push_back(a);
+	array_3->push_back(b);
+	array_3->push_back(c);
 	t_true(array_2->equals(array_3));
+
+	delete[] array;
+	delete[] array_2;
+	delete[] array_3;
 }
 
 void test_clear() {
 	Array* array = new Array();
 	Array* array_2 = new Array();
-	array_2->push_back(new Object());
+	array_2->push_back(o);
 	t_false(array->equals(array_2));
 	array_2->clear();
 	t_true(array->equals(array_2));
+
+	delete[] array;
+	delete[] array_2;
+	delete object;
 }
 
 void test_contains() {
 	Array* array = new Array();
-	array->push_back(new String("a"));
-	t_true(array->contains(new String("a")));
-	t_false(array->contains(new String("b")));
+	array->push_back(a);
+	t_true(array->contains(a));
+	t_false(array->contains(b));
+
+	delete[] array;
 }
 
 void test_index_of() {
 	Array* array = new Array();
-	array->push_back(new String("a"));
-	t_true(array->index_of(new String("a")) == 0);
-	t_true(array->index_of(new String("b")) > array->size());
+	array->push_back(a);
+	t_true(array->index_of(a) == 0);
+	t_true(array->index_of(b) > array->size());
+
+	delete[] array;
+	delete[] array_2;
 }
 
 void test_get() {
-	String* a = new String("a");
-	String* b = new String("b");
+	String* a = a;
+	String* b = b;
 	Array* array = new Array();
 	array->push_back(a);
 	array->push_back(b);
 	t_true(a->equals(array->get(0)));
 	t_true(b->equals(array->get(1)));
+
+	delete[] array;
 }
 
 void test_is_empty() {
-	String* a = new String("a");
 	Array* array = new Array();
 	t_true(array->is_empty());
 	array->push_back(a);
 	t_false(array->is_empty());
+	delete[] array;
 }
 
 void test_size() {
-	String* a = new String("a");
 	Array* array = new Array();
 	t_true(array->size() == 0);
 	array->push_back(a);
 	t_true(array->size() == 1);
+	delete[] array;
 }
 
 void test_remove() {
-	String* a = new String("a");
 	Array* array = new Array();
 	array->push_back(a);
 	t_true(array->size() == 1);
 	Object* removed = array->remove(0);
 	t_true(array->size() == 0);
 	t_true(a->equals(removed));
+	delete[] array;
 }
 
 void test_set() {
-	String* a = new String("a");
-	String* b = new String("b");
 	Array* array = new Array();
 	array->push_back(a);
 	t_true(array->get(0)->equals(a));
 	Object* replaced = array->set(0, b);
 	t_true(array->get(0)->equals(b));
-	t_true(b->equals(replaced));
+	t_true(a->equals(replaced));
+	delete[] array;
 }
 
 void test_hash() {
 	Array* array = new Array();
 	Array* array_2 = new Array();
-	String* a = new String("a");
 	array->push_back(a);
 	array_2->push_back(a);
 	t_true(array->hash() == array_2->hash());
+	delete[] array;
+	delete[] array_2;
 }
 
 void test_clone() {
 	Array* array = new Array();
-	String* a = new String("a");
 	array->push_back(a);
 	Object* array_2 = array->clone();
 	t_true(array->equals(array_2));
 	array->remove(0);
 	t_false(array->equals(array_2));
+	delete[] array;
+	delete[] array_2;
 }
 
 void test_object_methods() {
 	Object* object = new Object();
 	t_true(object->equals(object));
 	t_true(object->hash() == object->hash());
+	delete object;
 }
 
 int main() {
+	String* a = new String("a");
+	String* b = new String("b");
+	String* c = new String("c");
+	Object* o = new Object();
+
 	test_array_create();
 	test_push_back_all();
 	test_add_all();
@@ -149,5 +176,11 @@ int main() {
 	test_hash();
 	test_clone();
 	test_object_methods();
+
+	delete a;
+	delete b;
+	delete c;
+	delete o;
+
 	std::cout << "All tests passed!";
 }
