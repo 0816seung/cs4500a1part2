@@ -3,19 +3,24 @@
 #include "object.h"
 
 // Representation of a string
+// Passed in values should be copied and deleted
+// authors: lee.seu@husky.neu.edu, aguilar.ca@husky.neu.edu
 class String: public Object {
 public:
 	// default constructor that inherits from Object
 	String() : Object() {}
 
-	// constructor to create String from a String literal
+	// constructor to create String copying c
+	String(char* c): Object() {}
+
+	// constructor to create String copying c
 	String(const char* c): Object() {}
 
 	// destructor
 	~String() {}
 
 	// returns length of the string
-	size_t length() {}
+	size_t size() {}
 
 	// returns result of concatenating this string and s
 	String* concat(String* s) {}
@@ -27,7 +32,7 @@ public:
 	// returns a number < 0 if this string comes lexicographically before the given string
 	// returns 0 if this string is lexicographically equal to the given string
 	// returns a number > 0 if this string comes lexicographically after the given string
-	int compare_to(String* s) {}
+	int compare(String* s) {}
 
 	// checks if the given object is equal to this String
 	bool equals(Object * other) {
@@ -35,13 +40,17 @@ public:
 	}
 
 	// unimplemented hash code function
-	size_t hash() {}
+	size_t hash_me_() {}
 
 	// return string representation of this object
+	// should not return a reference to any internal objects
 	char* to_string() {}
 
 	// returns a copy of this object
 	Object* clone() {
 		// STUB
 	}
+
+	// prints this string to stdout
+	void print() {}
 };
