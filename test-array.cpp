@@ -63,7 +63,7 @@ void test_add_all() {
 }
 
 void test_clear() {
-	Object* object = new Object();
+	Object* o = new Object();
 	Array* array = new Array();
 	Array* array_2 = new Array();
 	array_2->push_back(o);
@@ -98,7 +98,6 @@ void test_index_of() {
 	t_true(array->index_of(b) > array->size());
 
 	delete[] array;
-	delete[] array_2;
 	delete a;
 	delete b;
 }
@@ -151,6 +150,7 @@ void test_remove() {
 
 void test_set() {
 	String* a = new String("a");
+	String* a = new String("b");
 	Array* array = new Array();
 	array->push_back(a);
 	t_true(array->get(0)->equals(a));
@@ -159,6 +159,7 @@ void test_set() {
 	t_true(a->equals(replaced));
 	delete[] array;
 	delete a;
+	delete b;
 }
 
 void test_hash() {
