@@ -3,6 +3,8 @@
 #include "string.h"
 #include "array.h"
 
+// authors: lee.seu@husky.neu.edu, aguilar.ca@husky.neu.edu
+
 void t_true(bool p) { if (!p) exit(1); }
 void t_false(bool p) { if (p) exit(1); }
 

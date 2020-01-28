@@ -3,6 +3,7 @@
 #include "object.h"
 
 // Representation of an array: expands as necessary
+// authors: lee.seu@husky.neu.edu, aguilar.ca@husky.neu.edu
 class Array: public Object {
 public:
 	// default constructor for array
