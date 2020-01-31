@@ -189,13 +189,6 @@ void test_clone() {
 	delete a;
 }
 
-void test_object_methods() {
-	Object* object = new Object();
-	t_true(object->equals(object));
-	t_true(object->hash() == object->hash());
-	delete object;
-}
-
 int main() {
 	test_array_create();
 	test_push_back_all();
@@ -210,6 +203,5 @@ int main() {
 	test_set();
 	test_hash();
 	test_clone();
-	test_object_methods();
 	std::cout << "All tests passed!";
 }

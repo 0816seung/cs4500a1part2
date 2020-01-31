@@ -35,21 +35,17 @@ public:
 	int compare(String* s) {}
 
 	// checks if the given object is equal to this String
-	bool equals(Object * other) {
-		return this == other;
-	}
+	bool equals(Object * other) {}
 
 	// unimplemented hash code function
-	size_t hash_me_() {}
+	size_t hash() {}
 
 	// return string representation of this object
 	// should not return a reference to any internal objects
 	char* to_string() {}
 
 	// returns a copy of this object
-	Object* clone() {
-		// STUB
-	}
+	Object* clone() {}
 
 	// prints this string to stdout
 	void print() {}
