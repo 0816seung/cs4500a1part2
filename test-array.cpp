@@ -18,8 +18,8 @@ void test_array_create() {
 	array_2->add(0, b);
 	array_2->add(0, a);
 	t_true(array->equals(array_2));
-	delete[] array;
-	delete[] array_2;
+	delete array;
+	delete array_2;
 	delete a;
 	delete b;
 }
@@ -34,8 +34,8 @@ void test_push_back_all() {
 	array_2->push_back_all(array);
 	t_true(array->equals(array_2));
 
-	delete[] array;
-	delete[] array_2;
+	delete array;
+	delete array_2;
 	delete a;
 	delete b;
 }
@@ -56,9 +56,9 @@ void test_add_all() {
 	array_3->push_back(c);
 	t_true(array_2->equals(array_3));
 
-	delete[] array;
-	delete[] array_2;
-	delete[] array_3;
+	delete array;
+	delete array_2;
+	delete array_3;
 	delete a;
 	delete b;
 	delete c;
@@ -73,8 +73,8 @@ void test_clear() {
 	array_2->clear();
 	t_true(array->equals(array_2));
 
-	delete[] array;
-	delete[] array_2;
+	delete array;
+	delete array_2;
 	delete o;
 }
 
@@ -86,7 +86,7 @@ void test_contains() {
 	t_true(array->contains(a));
 	t_false(array->contains(b));
 
-	delete[] array;
+	delete array;
 	delete a;
 	delete b;
 }
@@ -99,7 +99,7 @@ void test_index_of() {
 	t_true(array->index_of(a) == 0);
 	t_true(array->index_of(b) > array->size());
 
-	delete[] array;
+	delete array;
 	delete a;
 	delete b;
 }
@@ -113,7 +113,7 @@ void test_get() {
 	t_true(a->equals(array->get(0)));
 	t_true(b->equals(array->get(1)));
 
-	delete[] array;
+	delete array;
 	delete a;
 	delete b;
 }
@@ -124,7 +124,7 @@ void test_is_empty() {
 	t_true(array->is_empty());
 	array->push_back(a);
 	t_false(array->is_empty());
-	delete[] array;
+	delete array;
 	delete a;
 }
 
@@ -134,7 +134,7 @@ void test_size() {
 	t_true(array->size() == 0);
 	array->push_back(a);
 	t_true(array->size() == 1);
-	delete[] array;
+	delete array;
 	delete a;
 }
 
@@ -146,7 +146,7 @@ void test_remove() {
 	Object* removed = array->remove(0);
 	t_true(array->size() == 0);
 	t_true(a->equals(removed));
-	delete[] array;
+	delete array;
 	delete a;
 }
 
@@ -159,7 +159,7 @@ void test_set() {
 	Object* replaced = array->set(0, b);
 	t_true(array->get(0)->equals(b));
 	t_true(a->equals(replaced));
-	delete[] array;
+	delete array;
 	delete a;
 	delete b;
 }
@@ -171,8 +171,8 @@ void test_hash() {
 	array->push_back(a);
 	array_2->push_back(a);
 	t_true(array->hash() == array_2->hash());
-	delete[] array;
-	delete[] array_2;
+	delete array;
+	delete array_2;
 	delete a;
 }
 
@@ -184,8 +184,8 @@ void test_clone() {
 	t_true(array->equals(array_2));
 	array->remove(0);
 	t_false(array->equals(array_2));
-	delete[] array;
-	delete[] array_2;
+	delete array;
+	delete array_2;
 	delete a;
 }
 
